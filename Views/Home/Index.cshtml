@@ -1,0 +1,61 @@
+﻿@model PersonModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">National Identity Form</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4">
+            <form asp-controller="Home" asp-action="Index" method="post">
+                <br />
+                <label asp-for="Name">Full Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter your full name" />
+                <br />
+                <label asp-for="FatherName">Father Name</label>
+                <input asp-for="FatherName" class="form-control" placeholder="Enter your father's name" />
+
+                <br />
+                <label asp-for="Gender">Gender</label>
+                <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control">
+                </select>
+                <br />
+                <label asp-for="CountryOfStay">Country of stay</label>
+                <input asp-for="CountryOfStay" class="form-control" placeholder="Enter the name of country where you are staying" />
+
+                <br />
+                <label asp-for="Age">Age</label>
+                <input asp-for="Age" class="form-control" placeholder="Enter your age" min="0" max="150" />
+
+                <br />
+                <label asp-for="IdentityNumber">Identity Number</label>
+                <input asp-for="IdentityNumber" class="form-control" placeholder="Enter your identity number" minlength="13" maxlength="13" />
+
+                <br />
+                <label asp-for="Dob">Date of Birth</label>
+                <input asp-for="Dob" class="form-control" placeholder="Enter your date of birth" />
+
+                <br />
+                <label asp-for="IsMarried">Martial Status</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="IsMarried" value="yes">
+                    <label class="form-check-label" asp-for="IsMarried">Married</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="IsMarried" value="no">
+                    <label class="form-check-label" asp-for="IsMarried">Single</label>
+                </div>
+                <br />
+                <button class="form-control btn-outline-primary">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
